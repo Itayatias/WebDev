@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/templates/assets/loginPage/style.css">
     <script src="/templates/assets/loginPage/script.js"></script>
     <favicon rel="icon" href="/templates/assets/loginPage/img/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <div id="formWrapper">
         <div id="form">
@@ -15,22 +17,24 @@
                 <img class="logo-image" src="/templates/assets/loginPage/img/logo.png" alt="Logo">
                 <img class="logo-image" src="/templates/assets/loginPage/img/NameLogo.png" alt="Logo">
             </div>
-
-            <div class="form-item">
-                <p class="formLabel">Username</p>
-                <input type="email" name="email" id="email" class="form-style" autocomplete="off" required/>
-            </div>
-            <div class="form-item">
-                <p class="formLabel">Password</p>
-                <input type="password" name="password" id="password" class="form-style" required />
-                <p><a href="#"><small style="font-size:16px">Forgot Password ?</small></a></p>
-            </div>
-            <div class="form-item">
-                <p type="submit" class="login pull-left" ><a href="#"><small>Register</small></a></p>
-                <input type="submit" class="login pull-right" value="Log In">
-                <div class="clear-fix"></div>
-            </div>
+            <form method="POST" action="/login">
+                <div class="form-item">
+                    <p class="formLabel">Username</p>
+                    <input type="text" name="username" id="username" class="form-style" autocomplete="off" required />
+                </div>
+                <div class="form-item">
+                    <p class="formLabel">Password</p>
+                    <input type="password" name="password" id="password" class="form-style" required />
+                    <p><a href="#"><small style="font-size:16px">Forgot Password ?</small></a></p>
+                </div>
+                <div class="form-item">
+                    <p type="submit" class="login pull-left"><a href="#"><small>Register</small></a></p>
+                    <input type="submit" class="login pull-right" value="Log In">
+                    <div class="clear-fix"></div>
+                </div>
+            </form>
         </div>
     </div>
 </body>
+
 </html>
