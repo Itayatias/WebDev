@@ -1,0 +1,36 @@
+Black Colors:
+#000000
+---------------------------
+White Colors:
+#ffffff
+---------------------------
+Brown Colors:
+#583101
+#603808
+#6f4518
+#8b5e34
+#a47148
+#bc8a5f
+#d4a276
+#e7bc91
+#f3d5b5
+#ffedd8
+---------------------------
+Gerrn Colors:
+#333d29
+#414833
+#656d4a
+#a4ac86
+#c2c5aa
+---------------------------
+Gray Colors:
+#212529
+#343a40
+#495057
+#6c757d
+#adb5bd
+#ced4da
+#ced4da
+#dee2e6
+#e9ecef
+#f8f9fa
