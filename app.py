@@ -1,7 +1,6 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import sqlite3
-
 
 app = Flask(__name__)
 DATABASE = 'Database.db'
@@ -14,6 +13,8 @@ def get_db_connection():
 @app.route('/')
 def login():
     return render_template('index.html')
+
+
 
 
 @app.route('/login', methods=['POST'])
@@ -34,6 +35,14 @@ def do_login():
     else:
         flash('Invalid username or password')
         return redirect(url_for('login'))
+
+
+
+@app.route('/dashboard')
+def dashboard():
+    if 'username' in session:
+        return f"Welcome, {session['username']}!"
+    return redirect(url_for('login'))
 
 
 if __name__ == '__main__':
