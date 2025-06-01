@@ -14,9 +14,6 @@ def get_db_connection():
 def login():
     return render_template('index.html')
 
-
-
-
 @app.route('/login', methods=['POST'])
 def do_login():
     username = request.form['username']
@@ -31,7 +28,7 @@ def do_login():
     if user:
         session['user_id'] = user['id']
         session['username'] = user['username']
-        return redirect(url_for('dashboard'))  # redirect after successful login
+        return redirect(url_for('Manager/managerHomePage.html')) # Redirect to the dashboard after successful login
     else:
         flash('Invalid username or password')
         return redirect(url_for('login'))
