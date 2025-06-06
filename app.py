@@ -35,7 +35,7 @@ def login():
         if user['role'] == 'admin':
             return render_template('Manager/dashboard.html', username=user['username'])
         elif user['role'] == 'customer':
-            return render_template('customer/dashboard.html', username=user['username'])
+            return render_template('customer/customerHomePage.html', username=user['username'])
         else:
             flash('Role not recognized.')
             return redirect(url_for('home'))

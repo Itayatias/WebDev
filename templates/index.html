@@ -1,25 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/loginPage/style.css') }}">
+    <script src="{{ url_for('static', filename='assets/loginPage/script.js') }}"></script>
+    <link rel="icon" href="{{ url_for('static', filename='assets/loginPage/img/favicon.ico') }}" type="image/x-icon">
 </head>
+
 <body>
     <h2>Login</h2>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
+
+    <div id="formWrapper">
+        <div id="form">
+            <div class="logo">
+                <img class="logo-image" src="{{ url_for('static', filename='assets/loginPage/img/logo.png') }}" alt="Logo">
+                <img class="logo-image" src="{{ url_for('static', filename='assets/loginPage/img/NameLogo.png') }}" alt="Logo">
+            </div>
+            <h2>Login</h2>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
             <ul>
                 {% for msg in messages %}
-                    <li style="color: red;">{{ msg }}</li>
+                <li style="color: red;">{{ msg }}</li>
                 {% endfor %}
             </ul>
-        {% endif %}
-    {% endwith %}
-    <form method="POST" action="/login">
-        <label>Username:</label><br>
-        <input type="text" name="username" required><br>
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br>
-        <input type="submit" value="Log In">
-    </form>
+            {% endif %}
+            {% endwith %}
+            <form method="POST" action="/login">
+                <h4>UserName</h4>
+                <div class="form-item">
+                    <p class="formLabel"></p>
+                    <input type="text" name="username" id="username" placeholder="Username" class="form-style" autocomplete="off" required />
+                </div>
+                <div class="form-item">
+                    <p class="formLabel"></p>
+                    <input type="password" name="password" id="password" placeholder="Password" class="form-style" required />
+                    <p><a href="#"><small style="font-size:16px">Forgot Password ?</small></a></p>
+                </div>
+                <div class="form-item">
+                    <p class="login pull-left"><a href="#"><small>Register</small></a></p>
+                    <input type="submit" class="login pull-right" value="Log In">
+                    <div class="clear-fix"></div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
