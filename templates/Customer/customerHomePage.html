@@ -6,18 +6,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+
     <link rel="apple-touch-icon" href="/templates/static/assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="/templates/static/assets/img/favicon.ico">
-    
+
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/templatemo.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/CustomerLandingPage/style.css') }}">
 
 
     <!-- Load fonts style after rendering the layout styles -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
 </head>
 
 <body>
@@ -26,14 +28,18 @@
         <div class="container d-flex justify-content-between align-items-center">
 
             <a class="navbar-brand logo h1 align-self-center" style="color: #5a3e29;" href="index.html">
-                <img rel="logo-image" src="../../static/assets/img/logos/small-logo.jpg" alt="Zay Shop Logo" class="img-fluid">
+                <img rel="logo-image" src="../../static/assets/img/logos/small-logo.jpg" alt="Zay Shop Logo"
+                    class="img-fluid">
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
@@ -59,18 +65,21 @@
                             </div>
                         </div>
                     </div>
-                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal"
+                        data-bs-target="#templatemo_search">
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                         <p>search</p>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <p>bag</p>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="#">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
-                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <p>logout</p>
                     </a>
                 </div>
@@ -81,10 +90,11 @@
     <!-- Close Header -->
 
     <!-- Modal -->
-    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="w-100 pt-1 mb-5 text-right">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="C-landing-btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="" method="get" class="modal-content modal-body border-0 p-0">
                 <div class="input-group mb-2">
@@ -108,21 +118,30 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-color: #e7e1da;">
-                <div class="container" >
+                <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
                             <img class="img-fluid" src="../../static/assets/img/landingPage/candel_1.jpg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1" style="color: #5a3e29;"><img style="width: 10vh;" src="../../static/assets/img/logos/logoBrwon.png">&nbsp;Home Fragrance</h1>
-                                <h3 class="h2">A lifestyle brand specializing in handcrafted candles, diffusers, and home fragrance experiences.</h3>
+                                <h1 class="h1" style="color: #5a3e29;"><img style="width: 10vh;"
+                                        src="../../static/assets/img/logos/logoBrwon.png">&nbsp;Home Fragrance</h1>
+                                <h3 class="h2">A lifestyle brand specializing in handcrafted candles, diffusers, and
+                                    home fragrance experiences.</h3>
                                 <p>
-                                    Our collections are designed to transform everyday spaces into moments of calm, comfort, and elegance. 
-                                    We use high-quality ingredients and timeless design to bring soothing scents and a touch of luxury into your home. 
-                                    <a rel="sponsored" style="color: #5a3e29;" href="https://templatemo.com" target="_blank">TemplateMo</a> website. Image credits go to <a rel="sponsored" style="color: #5a3e29;" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                    <a rel="sponsored" style="color: #5a3e29;" href="https://unsplash.com/" target="_blank">Unsplash</a> and
-                                    <a rel="sponsored" style="color: #5a3e29;" href="https://icons8.com/" target="_blank">Icons 8</a>.
+                                    Our collections are designed to transform everyday spaces into moments of calm,
+                                    comfort, and elegance.
+                                    We use high-quality ingredients and timeless design to bring soothing scents and a
+                                    touch of luxury into your home.
+                                    <a rel="sponsored" style="color: #5a3e29;" href="https://templatemo.com"
+                                        target="_blank">TemplateMo</a> website. Image credits go to <a rel="sponsored"
+                                        style="color: #5a3e29;" href="https://stories.freepik.com/"
+                                        target="_blank">Freepik Stories</a>,
+                                    <a rel="sponsored" style="color: #5a3e29;" href="https://unsplash.com/"
+                                        target="_blank">Unsplash</a> and
+                                    <a rel="sponsored" style="color: #5a3e29;" href="https://icons8.com/"
+                                        target="_blank">Icons 8</a>.
                                 </p>
                             </div>
                         </div>
@@ -140,8 +159,9 @@
                                 <h1 class="h1">Proident occaecat</h1>
                                 <h3 class="h2">Aliquip ex ea commodo consequat</h3>
                                 <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                    You are permitted to use this Zay CSS template for your commercial websites.
+                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any
+                                    kind of template collection websites.
                                 </p>
                             </div>
                         </div>
@@ -159,8 +179,9 @@
                                 <h1 class="h1">Repr in voluptate</h1>
                                 <h3 class="h2">Ullamco laboris nisi ut </h3>
                                 <p>
-                                    We bring you 100% free CSS templates for your websites. 
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                    We bring you 100% free CSS templates for your websites.
+                                    If you wish to support TemplateMo, please make a small contribution via PayPal or
+                                    tell your friends about our website. Thank you.
                                 </p>
                             </div>
                         </div>
@@ -168,12 +189,37 @@
                 </div>
             </div>
         </div>
-        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
-            <i class="fas fa-chevron-left"></i>
+
+        <a class="carousel-control-next" href="#template-mo-zay-hero-carousel">
+            <i class="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </i>
         </a>
-        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
-            <i class="fas fa-chevron-right"></i>
+
+        <a class="carousel-control-prev" href="#template-mo-zay-hero-carousel">
+            <i style="transform: scaleX(-1);">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </i>
         </a>
+
+        <!-- <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button">
+            <i class="fas fa-chevron-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button">
+            <i class="fas fa-chevron-right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" weight="700" fill="#5a3e29" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                </svg>
+            </i>
+        </a> -->
     </div>
     <!-- End Banner Hero -->
 
@@ -184,26 +230,29 @@
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Categories of The Month</h1>
                 <p>
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
+                    The most viewed and most purchased categories over the past month on our company website and in our
+                    store.
                 </p>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="../../static/assets/img/landingPage/categoryCandel.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Watches</h5>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <a href="#"><img src="../../static/assets/img/landingPage/categoryCandel.jpg"
+                        class="rounded-circle img-fluid border"></a>
+                <h5 class="text-center mt-3 mb-3">Candles</h5>
+                <p class="text-center"><a class="C-landing-btn C-landing-btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="../../static/assets/img/landingPage/categoryDefuzer.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <a href="#"><img src="../../static/assets/img/landingPage/categoryDefuzer.jpg"
+                        class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Diffusers</h2>
+                <p class="text-center"><a class="C-landing-btn C-landing-btn-success">Go Shop</a></p>
             </div>
             <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="../../static/assets/img/landingPage/categorySoap.jpg" class="rounded-circle img-fluid border"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-                <p class="text-center"><a class="btn btn-success">Go Shop</a></p>
+                <a href="#"><img src="../../static/assets/img/landingPage/categorySoap.jpg"
+                        class="rounded-circle img-fluid border"></a>
+                <h2 class="h5 text-center mt-3 mb-3">Soaps</h2>
+                <p class="text-center"><a class="C-landing-btn C-landing-btn-success">Go Shop</a></p>
             </div>
         </div>
     </section>
@@ -241,7 +290,8 @@
                             </ul>
                             <a href="shop-single.html" class="h2 text-decoration-none text-dark">Gym Weight</a>
                             <p class="card-text">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia deserunt.
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt in culpa qui officia
+                                deserunt.
                             </p>
                             <p class="text-muted">Reviews (24)</p>
                         </div>
@@ -265,7 +315,8 @@
                             </ul>
                             <a href="shop-single.html" class="h2 text-decoration-none text-dark">Cloud Nike Shoes</a>
                             <p class="card-text">
-                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo ullamcorper.
+                                Aenean gravida dignissim finibus. Nullam ipsum diam, posuere vitae pharetra sed, commodo
+                                ullamcorper.
                             </p>
                             <p class="text-muted">Reviews (48)</p>
                         </div>
@@ -287,9 +338,11 @@
                                 </li>
                                 <li class="text-muted text-right">$360.00</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides Shoes</a>
+                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">Summer Addides
+                                Shoes</a>
                             <p class="card-text">
-                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et scelerisque ipsum lobortis nec.
+                                Curabitur ac mi sit amet diam luctus porta. Phasellus pulvinar sagittis diam, et
+                                scelerisque ipsum lobortis nec.
                             </p>
                             <p class="text-muted">Reviews (74)</p>
                         </div>
@@ -303,90 +356,12 @@
 
     <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2  border-bottom pb-3 border-light logo" style="color: #ffffff;">Zay Shop</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li>
-                            <i class="fas fa-map-marker-alt fa-fw"></i>
-                            123 Consectetur at ligula 10660
-                        </li>
-                        <li>
-                            <i class="fa fa-phone fa-fw"></i>
-                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope fa-fw"></i>
-                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
-                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
-                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
-                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
-                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-4 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
-                    <ul class="list-unstyled text-light footer-link-list">
-                        <li><a class="text-decoration-none" href="#">Home</a></li>
-                        <li><a class="text-decoration-none" href="#">About Us</a></li>
-                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
-                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
-                        <li><a class="text-decoration-none" href="#">Contact</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="row text-light mb-4">
-                <div class="col-12 mb-3">
-                    <div class="w-100 my-3 border-top border-light"></div>
-                </div>
-                <div class="col-auto me-auto">
-                    <ul class="list-inline text-left footer-icons">
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                        </li>
-                        <li class="list-inline-item border border-light rounded-circle text-center">
-                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-auto">
-                    <label class="sr-only" for="subscribeEmail">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
-                        <div class="input-group-text btn-success text-light">Subscribe</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="w-100 bg-black py-3">
             <div class="container">
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; 2021 Company Name 
-                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a>
+                            Copyright &copy; IAD - Itay Arial & Diana
                         </p>
                     </div>
                 </div>
