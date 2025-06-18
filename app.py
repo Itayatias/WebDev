@@ -6,16 +6,17 @@ app = Flask(__name__)
 app.secret_key = 'Itay2503'  # Needed for session
 
 DATABASE = 'Database.db'
-
 def get_db_connection():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row
     return conn
 
+# שליחת קבצי תבנית
 @app.route('/')
 def home():
     return render_template('index.html')
 
+# התחברות למערכת
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form['username']
@@ -43,11 +44,19 @@ def login():
         flash('Invalid username or password')
         return redirect(url_for('home'))
 
+# התנתקות מהמערכת
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect(url_for('home'))
 
+
+# הרשמה למערכת
+from Controller.register import register_bp
+app.register_blueprint(register_bp)
+
+
+# הרצה
 if __name__ == '__main__':
     if not os.path.exists(DATABASE):
         print("You must create and populate Database.db with a 'users' table including 'username', 'password', 'role'.")
