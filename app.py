@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import sqlite3
 import os
-
 app = Flask(__name__)
 app.secret_key = 'Itay2503'  # Needed for session
 
@@ -15,6 +14,7 @@ def get_db_connection():
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 # התחברות למערכת
 @app.route('/login', methods=['POST'])
@@ -54,6 +54,7 @@ def logout():
 # הרשמה למערכת
 from Controller.register import register_bp
 app.register_blueprint(register_bp)
+
 
 
 # הרצה
