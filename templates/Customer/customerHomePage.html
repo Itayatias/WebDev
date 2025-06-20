@@ -76,7 +76,7 @@
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         <p>bag</p>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="{{ url_for('logout') }}">
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
@@ -127,7 +127,8 @@
                             <div class="text-align-left align-self-center">
                                 <h1 class="h1" style="color: #5a3e29;"><img style="width: 10vh;"
                                         src="../../static/assets/img/logos/logoBrwon.png">&nbsp;Home Fragrance</h1>
-                                <h3 class="h2">A lifestyle brand specializing in handcrafted candles, diffusers, and
+                                <h3 class="h2">
+                                    A lifestyle brand specializing in handcrafted candles, diffusers, and
                                     home fragrance experiences.</h3>
                                 <p>
                                     Our collections are designed to transform everyday spaces into moments of calm,
@@ -168,20 +169,32 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item" style="background-color: #e7e1da;">
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="../../static/assets/img/banner_img_03.jpg" alt="">
+                            <img class="img-fluid" src="../../static/assets/img/landingPage/candel_1.jpg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left">
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1" style="color: #5a3e29;"><img style="width: 10vh;"
+                                        src="../../static/assets/img/logos/logoBrwon.png">&nbsp;Home Fragrance</h1>
+                                <h3 class="h2">
+                                    A lifestyle brand specializing in handcrafted candles, diffusers, and
+                                    home fragrance experiences.</h3>
                                 <p>
-                                    We bring you 100% free CSS templates for your websites.
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or
-                                    tell your friends about our website. Thank you.
+                                    Our collections are designed to transform everyday spaces into moments of calm,
+                                    comfort, and elegance.
+                                    We use high-quality ingredients and timeless design to bring soothing scents and a
+                                    touch of luxury into your home.
+                                    <a rel="sponsored" style="color: #5a3e29;" href="https://templatemo.com"
+                                        target="_blank">TemplateMo</a> website. Image credits go to <a rel="sponsored"
+                                        style="color: #5a3e29;" href="https://stories.freepik.com/"
+                                        target="_blank">Freepik Stories</a>,
+                                    <a rel="sponsored" style="color: #5a3e29;" href="https://unsplash.com/"
+                                        target="_blank">Unsplash</a> and
+                                    <a rel="sponsored" style="color: #5a3e29;" href="https://icons8.com/"
+                                        target="_blank">Icons 8</a>.
                                 </p>
                             </div>
                         </div>
@@ -192,16 +205,20 @@
 
         <a class="carousel-control-next" href="#template-mo-zay-hero-carousel">
             <i class="">
-                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
                 </svg>
             </i>
         </a>
 
         <a class="carousel-control-prev" href="#template-mo-zay-hero-carousel">
             <i style="transform: scaleX(-1);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29" class="bi bi-chevron-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="#5a3e29"
+                    class="bi bi-chevron-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708" />
                 </svg>
             </i>
         </a>
@@ -251,7 +268,8 @@
                 <div class="col-lg-6 m-auto">
                     <h1 class="h1">Most Popular Scents</h1>
                     <p>
-                        Discover our customers' favorite and most beloved scents. Here you'll find a ranking of the top-rated fragrances based on user reviews.
+                        Discover our customers' favorite and most beloved scents. Here you'll find a ranking of the
+                        top-rated fragrances based on user reviews.
                     </p>
                 </div>
             </div>
@@ -259,12 +277,14 @@
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="../../static/assets/img/Customer/LandingPage_C/Coconat.jpg" class="card-img-top" alt="...">
+                            <img src="../../static/assets/img/Customer/LandingPage_C/Coconat.jpg" class="card-img-top"
+                                alt="...">
                         </a>
                         <div class="card-body">
                             <a href="shop-single.html" class="h2 text-decoration-none text-dark">Coconut</a>
                             <p class="card-text">
-                                A tropical, creamy scent that evokes the feeling of sun-soaked beaches and pure relaxation.
+                                A tropical, creamy scent that evokes the feeling of sun-soaked beaches and pure
+                                relaxation.
                             </p>
                         </div>
                     </div>
@@ -272,7 +292,8 @@
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="../../static/assets/img/Customer/LandingPage_C/Vanilla.jpg" class="card-img-top" alt="...">
+                            <img src="../../static/assets/img/Customer/LandingPage_C/Vanilla.jpg" class="card-img-top"
+                                alt="...">
                         </a>
                         <div class="card-body">
                             <a href="shop-single.html" class="h2 text-decoration-none text-dark">Vanilla</a>
@@ -285,7 +306,8 @@
                 <div class="col-12 col-md-4 mb-4">
                     <div class="card h-100">
                         <a href="shop-single.html">
-                            <img src="../../static/assets/img/Customer/LandingPage_C/Wood.jpg" class="card-img-top" alt="...">
+                            <img src="../../static/assets/img/Customer/LandingPage_C/Wood.jpg" class="card-img-top"
+                                alt="...">
                         </a>
                         <div class="card-body">
                             <a href="shop-single.html" class="h2 text-decoration-none text-dark">Wood</a>
@@ -313,7 +335,8 @@
         <div class="row">
             <div class="col-12 col-md-6 mb-4">
                 <h2 class="h5">Customer Service</h2>
-                <p>If you have any questions or concerns, please don't hesitate to reach out to our customer service team.</p>
+                <p>If you have any questions or concerns, please don't hesitate to reach out to our customer service
+                    team.</p>
                 <p>Our support team is available and ready to assist you.</p>
                 <a href="mailto:support@example.com">Email: support@example.com</a><br><br>
                 <a href="tel:+11234567890">Phone: 050-4567890</a>
@@ -321,7 +344,30 @@
             <div class="col-12 col-md-6 mb-4">
                 <h2 class="h5">Feel free to ask!</h2>
                 <p>Contact with our management team to solve and answer your questions.</p>
+                <form method="POST" action="{{ url_for('contact.customer_contact') }}">
+                    <div class="mb-3">
+                        <label for="contact_name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="contact_name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_email" class="form-label">Your Email</label>
+                        <input type="email" class="form-control" id="contact_email" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_message" class="form-label">Message</label>
+                        <textarea class="form-control" id="contact_message" name="message" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+                {% with messages = get_flashed_messages(category_filter=['contact']) %}
+                {% if messages %}
+                <div class="alert alert-info mt-2">
+                    {{ messages[0] }}
+                </div>
+                {% endif %}
+                {% endwith %}
             </div>
+        </div>
         </div>
     </section>
     <!-- End Categories of The Month -->
@@ -334,7 +380,7 @@
                 <div class="row pt-2">
                     <div class="col-12">
                         <p class="text-left text-light">
-                            Copyright &copy; IAD - Itay Arial & Diana
+                            Copyright &copy; IAD - Itay || Arial || Diana
                         </p>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 import sqlite3
 import os
+
+
 app = Flask(__name__)
 app.secret_key = 'Itay2503'  # Needed for session
 
@@ -55,6 +57,9 @@ def logout():
 from Controller.register import register_bp
 app.register_blueprint(register_bp)
 
+
+from Controller.contact import contact_bp
+app.register_blueprint(contact_bp)
 
 
 # הרצה
