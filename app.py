@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
+import uuid
+import time
 import sqlite3
 import os
 
@@ -153,6 +155,40 @@ def remove_from_cart():
     conn.close()
     return jsonify({'message': 'Product removed'})
 
+import uuid
+import time
+
+@app.route('/create_order', methods=['POST'])
+def create_order():
+    user = session.get('username')
+    if not user:
+        return jsonify({'message': 'User not logged in'}), 401
+
+    conn = sqlite3.connect('Database.db')
+    cursor = conn.cursor()
+    # שליפת סכום כולל מהסל
+    cursor.execute('SELECT SUM(price * quantity) FROM carts WHERE user=?', (user,))
+    total = cursor.fetchone()[0]
+    if not total:
+        conn.close()
+        return jsonify({'message': 'Cart is empty'}), 400
+
+    # יצירת מספר הזמנה ייחודי
+    order_id = str(uuid.uuid4())
+    order_datetime = int(time.time())
+    customer_name = user
+
+    # הכנסת ההזמנה לטבלה orders
+    cursor.execute('''
+        INSERT INTO orders (orderID, orderDateTime, customerName, totalOrder)
+        VALUES (?, ?, ?, ?)
+    ''', (order_id, order_datetime, customer_name, total))
+
+    # ריקון הסל של המשתמש
+    cursor.execute('DELETE FROM carts WHERE user=?', (user,))
+    conn.commit()
+    conn.close()
+    return jsonify({'message': 'Order created successfully!', 'orderID': order_id})
 
 # הרצה
 if __name__ == '__main__':

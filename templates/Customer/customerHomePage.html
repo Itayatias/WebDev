@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Zay Shop eCommerce HTML CSS Template</title>
+    <title>IDA - Home Fragrance || Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -70,7 +70,7 @@
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                         <p>search</p>
                     </a>
-                    <a class="nav-icon position-relative text-decoration-none" href="#">
+                    <a class="nav-icon position-relative text-decoration-none" href="#" id="cartBtn">
                         <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
                         <span
                             class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
@@ -397,6 +397,132 @@
     <script src="/templates/static/assets/js/templatemo.js"></script>
     <script src="/templates/static/assets/js/custom.js"></script>
     <!-- End Script -->
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Modal for Cart -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cartItems" class="list-group">
+                        <!-- Cart items will be injected here -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" style="background-color: #727d71; border: #5a3e2900;"
+                        id="checkoutBtn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openProductModal(name, price, imgSrc) {
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductPrice').textContent = price;
+            document.getElementById('modalProductImg').src = imgSrc;
+            var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('productModal'));
+            modal.show();
+        }
+
+        function openCartModal() {
+            fetch('/get_cart')
+                .then(res => res.json())
+                .then(data => {
+                    const cartItems = document.getElementById('cartItems');
+                    cartItems.innerHTML = '';
+                    if (!data.cart || data.cart.length === 0) {
+                        cartItems.innerHTML = '<li class="list-group-item">Cart is empty.</li>';
+                    } else {
+                        data.cart.forEach(function (item, idx) {
+                            cartItems.innerHTML += `
+                        <li class="list-group-item d-flex align-items-center justify-content-between">
+                            <div>
+                                <strong>${item.productName}</strong> <br>
+                                Price: ${item.price} <br>
+                                Quantity: <span id="qty-${idx}">${item.quantity}</span>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm cart-plus" onclick="updateCart('${item.productName}', 1)">+</button>
+                                <button class="btn btn-sm cart-minus" onclick="updateCart('${item.productName}', -1)">-</button>
+                                <button class="btn btn-sm cart-remove" onclick="removeFromCart('${item.productName}')">Remove</button>
+                            </div>
+                        </li>
+                    `;
+                        });
+                    }
+                    var cartModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('cartModal'));
+                    cartModal.show();
+                });
+        }
+
+        document.getElementById('cartBtn').onclick = function (e) {
+            e.preventDefault();
+            openCartModal();
+        };
+
+        document.getElementById('addToCartBtn').onclick = function () {
+            var quantity = parseInt(document.getElementById('modalProductQuantity').value);
+            var name = document.getElementById('modalProductName').textContent;
+            var price = document.getElementById('modalProductPrice').textContent;
+            fetch('/add_to_cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    productName: name,
+                    price: price,
+                    quantity: quantity
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                });
+        };
+
+        function updateCart(productName, delta) {
+            fetch('/update_cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productName, delta })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    openCartModal();
+                });
+        }
+
+        function removeFromCart(productName) {
+            fetch('/remove_from_cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productName })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    openCartModal();
+                });
+        }
+
+        document.getElementById('checkoutBtn').onclick = function () {
+            fetch('/create_order', {
+                method: 'POST'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.orderID) {
+                        alert('Order created! Your order number: ' + data.orderID);
+                        openCartModal(); // רענון הסל (יהיה ריק)
+                    } else {
+                        alert(data.message);
+                    }
+                });
+        };
+    </script>
 </body>
 
 </html>

@@ -14,3 +14,16 @@ Custom Css
     font-size: 10px;
     color: #583101;
 }
+.cart-plus{
+    background-color: #656d4a; 
+    color: #fff;
+}
+.cart-minus{
+    background-color: #582f0e; 
+    color: #fff;
+}
+
+.cart-remove{
+    background-color: #6e0d25; 
+    color: #fff;
+}
