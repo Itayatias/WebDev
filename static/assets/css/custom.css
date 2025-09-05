@@ -9,3 +9,8 @@ Custom Css
     object-position: center;
     border-radius: 8px;
 }
+
+.product-detail-size {
+    font-size: 10px;
+    color: #583101;
+}
