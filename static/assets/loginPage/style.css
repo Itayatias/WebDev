@@ -96,14 +96,14 @@ div.form-item{position: relative; display: block; margin-bottom: 20px;}
 	letter-spacing: .8px;
 }
 
-div.form-item .form-style:focus{outline: none; border:1px solid #58bff6; color:#58bff6; }
+div.form-item .form-style:focus{outline: none; border:1px solid #583101; color:#583101; }
 div.form-item p.formLabel {
 	position: absolute;
 	left:26px;
 	top:2px;
 	transition:all .4s ease;
 	color:#bbb;}
-.formTop{top:-22px !important; left:26px; background-color: #fff; padding:0 5px; font-size: 20px; color:#58bff6 !important;}
+.formTop{top:-22px !important; left:26px; background-color: #fff; padding:0 5px; font-size: 20px; color:#583101 !important;}
 .formStatus{color:#8a8a8a !important;}
 input[type="submit"].login{
 	float:right;

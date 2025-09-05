@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Zay Shop - Product Detail Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="../../static/assets/img/landingPage/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../static/assets/img/landingPage/favicon.ico">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/templatemo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/custom.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/slick-theme.css') }}">
+
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
+
+
+
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand logo h1 align-self-center" style="color: #5a3e29;" href="index.html">
+                <img rel="logo-image" src="../../static/assets/img/logos/small-logo.jpg" alt="Zay Shop Logo"
+                    class="img-fluid">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between"
+                id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('customer_home') }}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('about_us') }}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('customer_shop') }}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ContactUs">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon position-relative text-decoration-none" href="#" data-bs-toggle="modal"
+                        data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                        <p>search</p>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="#" id="cartBtn">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <p>bag</p>
+                    </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{{ url_for('logout') }}">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span
+                            class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        <p>logout</p>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- Open Content -->
+    <section class="bg-light">
+        <div class="container pb-4">
+            <div class="row">
+                <div class="col-lg-1 mt-4">
+                </div>
+                <!-- col end -->
+                <div class="col-lg-14 mt-4 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h2">Shop by Category</h1>
+                            <div class="row">
+                                <div class="row pb-4">
+                                    <div class="col d-grid">
+                                        <div class="card rounded-0">
+                                            <img class="card-img rounded-0 img-fluid"
+                                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="Candels">Candels</button>
+                                    </div>
+                                    <div class="col d-grid">
+                                        <div class="card rounded-0">
+                                            <img class="card-img rounded-0 img-fluid"
+                                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="Candels">Candels</button>
+                                    </div>
+                                    <div class="col d-grid">
+                                        <div class="card rounded-0">
+                                            <img class="card-img rounded-0 img-fluid"
+                                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="Candels">Candels</button>
+                                    </div>
+                                    <div class="col d-grid">
+                                        <div class="card rounded-0">
+                                            <img class="card-img rounded-0 img-fluid"
+                                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="Candels">Candels</button>
+                                    </div>
+                                    <div class="col d-grid">
+                                        <div class="card rounded-0">
+                                            <img class="card-img rounded-0 img-fluid"
+                                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                                        </div>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                            value="Candels">Candels</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- Close Content -->
+
+    <!-- Start Article -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-left p-2 pb-3">
+                <h4>All Products</h4>
+            </div>
+            <div class="row">
+                <!-- Product 1 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0"
+                        onclick="openProductModal('White Shirt', '$25.00', '../../static/assets/img/products/candels/candel1.jpg')"
+                        style="cursor:pointer;">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid product-img"
+                                src="../../static/assets/img/products/candels/candel1.jpg">
+                            <!-- ...existing overlay/buttons... -->
+                        </div>
+                        <div class="card-body">
+                            <a href="javascript:void(0);" class="h3 text-decoration-none">White Shirt</a>
+                            <!-- ...existing details... -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid product-img"
+                                src="../../static/assets/img/products/candels/candel1.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_10.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">Oupidatat non</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$45.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 5 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 9 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 10 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 11 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 12 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 13 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 14 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 15 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 16 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid"
+                                src="../../static/assets/img/landingPage/shop_09.jpg">
+                            <div
+                                class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn  text-white" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-heart"
+                                                style="background-color: #656d4a;"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn  text-white mt-2" style="background-color: #656d4a;"
+                                            href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="shop-single.html" class="h3 text-decoration-none">White Shirt</a>
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>M/L/X/XL</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span
+                                        class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$25.00</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+    <!-- End Article -->
+
+
+    <!-- Start Footer -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">Zay Shop</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            123 Consectetur at ligula 10660
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:010-020-0340">010-020-0340</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@company.com">info@company.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                        <li><a class="text-decoration-none" href="#">Sport Wear</a></li>
+                        <li><a class="text-decoration-none" href="#">Men's Shoes</a></li>
+                        <li><a class="text-decoration-none" href="#">Women's Shoes</a></li>
+                        <li><a class="text-decoration-none" href="#">Popular Dress</a></li>
+                        <li><a class="text-decoration-none" href="#">Gym Accessories</a></li>
+                        <li><a class="text-decoration-none" href="#">Sport Shoes</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Further Info</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-decoration-none" href="#">Home</a></li>
+                        <li><a class="text-decoration-none" href="#">About Us</a></li>
+                        <li><a class="text-decoration-none" href="#">Shop Locations</a></li>
+                        <li><a class="text-decoration-none" href="#">FAQs</a></li>
+                        <li><a class="text-decoration-none" href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i
+                                    class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i
+                                    class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank"
+                                href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Email address</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail"
+                            placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Subscribe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2021 Company Name
+                            | Designed by <a rel="sponsored" href="https://templatemo.com"
+                                target="_blank">TemplateMo</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="/templates/static/assets/js/jquery-1.11.0.min.js"></script>
+    <script src="/templates/static/assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/templates/static/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/templates/static/assets/js/templatemo.js"></script>
+    <script src="/templates/static/assets/js/custom.js"></script>
+    <!-- End Script -->
+
+    <!-- Start Slider Script -->
+    <script src="/templates/static/assets/js/slick.min.js"></script>
+    <script>
+        $('#carousel-related-product').slick({
+            infinite: true,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            dots: true,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            }
+            ]
+        });
+    </script>
+    <!-- End Slider Script -->
+
+    <!-- Modal for product details -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Add to Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalProductImg" src="" class="img-fluid mb-3" alt="Product Image">
+                    <h4 id="modalProductName"></h4>
+                    <p id="modalProductPrice"></p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="modalProductSize" class="form-label">Choose Size:</label>
+                            <select id="modalProductSize" class="form-select">
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn btn-success" id="addToCartBtn">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Cart -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="cartItems" class="list-group">
+                        <!-- Cart items will be injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function openProductModal(name, price, imgSrc) {
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductPrice').textContent = price;
+            document.getElementById('modalProductImg').src = imgSrc;
+            // פתח את המודאל של Bootstrap
+            var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('productModal'));
+            modal.show();
+        }
+
+        function openCartModal() {
+            fetch('/get_cart')
+                .then(res => res.json())
+                .then(data => {
+                    const cartItems = document.getElementById('cartItems');
+                    cartItems.innerHTML = '';
+                    if (!data.cart || data.cart.length === 0) {
+                        cartItems.innerHTML = '<li class="list-group-item">Cart is empty.</li>';
+                    } else {
+                        data.cart.forEach(function (item, idx) {
+                            cartItems.innerHTML += `
+                            <li class="list-group-item d-flex align-items-center justify-content-between">
+                                <div>
+                                    <strong>${item.productName}</strong> <br>
+                                    Size: ${item.size} <br>
+                                    Price: ${item.price} <br>
+                                    Quantity: <span id="qty-${idx}">${item.count}</span>
+                                </div>
+                                <div>
+                                    <button class="btn btn-sm btn-success" onclick="updateCart('${item.productName}','${item.size}',1)">+</button>
+                                    <button class="btn btn-sm btn-warning" onclick="updateCart('${item.productName}','${item.size}',-1)">-</button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.productName}','${item.size}')">Remove</button>
+                                </div>
+                            </li>
+                        `;
+                        });
+                    }
+                    // פתח את המודאל תמיד אחרי רענון
+                    var cartModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('cartModal'));
+                    cartModal.show();
+                });
+        }
+
+        document.getElementById('cartBtn').onclick = function (e) {
+            e.preventDefault();
+            openCartModal();
+        };
+
+        function updateCart(productName, size, delta) {
+            fetch('/update_cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productName, size, delta })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    openCartModal();
+                });
+        }
+
+        function removeFromCart(productName, size) {
+            fetch('/remove_from_cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productName, size })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    openCartModal();
+                });
+        }
+    </script>
+</body>
+
+</html>
