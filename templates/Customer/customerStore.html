@@ -1083,13 +1083,13 @@
                     <p id="modalProductPrice"></p>
                     <form>
                         <div class="mb-3">
-                            <label for="modalProductSize" class="form-label">Choose Size:</label>
-                            <select id="modalProductSize" class="form-select">
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
+                            <label for="modalProductQuantity" class="form-label">Select Quantity:</label>
+                            <select id="modalProductQuantity" class="form-select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
                             </select>
                         </div>
                         <button type="button" class="btn btn-success" id="addToCartBtn">Add to Cart</button>
@@ -1124,7 +1124,6 @@
             document.getElementById('modalProductName').textContent = name;
             document.getElementById('modalProductPrice').textContent = price;
             document.getElementById('modalProductImg').src = imgSrc;
-            // פתח את המודאל של Bootstrap
             var modal = bootstrap.Modal.getOrCreateInstance(document.getElementById('productModal'));
             modal.show();
         }
@@ -1143,20 +1142,18 @@
                             <li class="list-group-item d-flex align-items-center justify-content-between">
                                 <div>
                                     <strong>${item.productName}</strong> <br>
-                                    Size: ${item.size} <br>
                                     Price: ${item.price} <br>
-                                    Quantity: <span id="qty-${idx}">${item.count}</span>
+                                    Quantity: <span id="qty-${idx}">${item.quantity}</span>
                                 </div>
                                 <div>
-                                    <button class="btn btn-sm btn-success" onclick="updateCart('${item.productName}','${item.size}',1)">+</button>
-                                    <button class="btn btn-sm btn-warning" onclick="updateCart('${item.productName}','${item.size}',-1)">-</button>
-                                    <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.productName}','${item.size}')">Remove</button>
+                                    <button class="btn btn-sm btn-success" onclick="updateCart('${item.productName}', 1)">+</button>
+                                    <button class="btn btn-sm btn-warning" onclick="updateCart('${item.productName}', -1)">-</button>
+                                    <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.productName}')">Remove</button>
                                 </div>
                             </li>
                         `;
                         });
                     }
-                    // פתח את המודאל תמיד אחרי רענון
                     var cartModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('cartModal'));
                     cartModal.show();
                 });
@@ -1167,11 +1164,29 @@
             openCartModal();
         };
 
-        function updateCart(productName, size, delta) {
+        document.getElementById('addToCartBtn').onclick = function () {
+            var quantity = parseInt(document.getElementById('modalProductQuantity').value);
+            var name = document.getElementById('modalProductName').textContent;
+            var price = document.getElementById('modalProductPrice').textContent;
+            fetch('/add_to_cart', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    productName: name,
+                    price: price,
+                    quantity: quantity
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                });
+        };
+
+        function updateCart(productName, delta) {
             fetch('/update_cart', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ productName, size, delta })
+                body: JSON.stringify({ productName, delta })
             })
                 .then(res => res.json())
                 .then(data => {
@@ -1179,11 +1194,11 @@
                 });
         }
 
-        function removeFromCart(productName, size) {
+        function removeFromCart(productName) {
             fetch('/remove_from_cart', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ productName, size })
+                body: JSON.stringify({ productName })
             })
                 .then(res => res.json())
                 .then(data => {

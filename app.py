@@ -77,27 +77,25 @@ def about_us():
 def add_to_cart():
     data = request.get_json()
     product_name = data.get('productName')
-    count = data.get('count', 1)
-    size = data.get('size')
     price = data.get('price')
-    user = session.get('username')  # ודא שהמשתמש שמור ב-session
+    quantity = int(data.get('quantity', 1))
+    user = session.get('username')
 
     if not user:
         return jsonify({'message': 'User not logged in'}), 401
 
     conn = sqlite3.connect('Database.db')
     cursor = conn.cursor()
-    # בדוק אם המוצר כבר קיים בסל של המשתמש (כולל מידה)
-    cursor.execute('SELECT countOfProducts FROM carts WHERE user=? AND productName=? AND size=?', (user, product_name, size))
+    cursor.execute('SELECT quantity FROM carts WHERE user=? AND productName=?', (user, product_name))
     row = cursor.fetchone()
     if row:
-        # עדכן כמות
-        cursor.execute('UPDATE carts SET countOfProducts = countOfProducts + ? WHERE user=? AND productName=? AND size=?',
-                       (count, user, product_name, size))
+        # עדכן כמות קיימת
+        cursor.execute('UPDATE carts SET quantity = quantity + ? WHERE user=? AND productName=?',
+                       (quantity, user, product_name))
     else:
-        # הוסף מוצר חדש לסל
-        cursor.execute('INSERT INTO carts (user, productName, size, price, countOfProducts) VALUES (?, ?, ?, ?, ?)',
-                       (user, product_name, size, price, count))
+        # הוסף מוצר חדש עם הכמות שנבחרה
+        cursor.execute('INSERT INTO carts (user, productName, quantity, price) VALUES (?, ?, ?, ?)',
+                       (user, product_name, quantity, price))
     conn.commit()
     conn.close()
     return jsonify({'message': 'Product added to cart!'})
@@ -109,13 +107,12 @@ def get_cart():
         return jsonify({'cart': []})
     conn = sqlite3.connect('Database.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT productName, size, price, countOfProducts FROM carts WHERE user=?', (user,))
+    cursor.execute('SELECT productName, quantity, price FROM carts WHERE user=?', (user,))
     cart_items = [
         {
             'productName': row[0],
-            'size': row[1],
-            'price': row[2],
-            'count': row[3]
+            'quantity': row[1],
+            'price': row[2]
         }
         for row in cursor.fetchall()
     ]
@@ -127,21 +124,19 @@ def update_cart():
     data = request.get_json()
     user = session.get('username')
     product_name = data.get('productName')
-    size = data.get('size')
     delta = int(data.get('delta', 0))
     conn = sqlite3.connect('Database.db')
     cursor = conn.cursor()
-    # עדכן כמות, אם מגיע ל-0 מחק את המוצר
-    cursor.execute('SELECT countOfProducts FROM carts WHERE user=? AND productName=? AND size=?', (user, product_name, size))
+    cursor.execute('SELECT quantity FROM carts WHERE user=? AND productName=?', (user, product_name))
     row = cursor.fetchone()
     if row:
-        new_count = row[0] + delta
-        if new_count > 0:
-            cursor.execute('UPDATE carts SET countOfProducts=? WHERE user=? AND productName=? AND size=?',
-                           (new_count, user, product_name, size))
+        new_quantity = row[0] + delta
+        if new_quantity > 0:
+            cursor.execute('UPDATE carts SET quantity=? WHERE user=? AND productName=?',
+                           (new_quantity, user, product_name))
         else:
-            cursor.execute('DELETE FROM carts WHERE user=? AND productName=? AND size=?',
-                           (user, product_name, size))
+            cursor.execute('DELETE FROM carts WHERE user=? AND productName=?',
+                           (user, product_name))
         conn.commit()
     conn.close()
     return jsonify({'message': 'Cart updated'})
@@ -151,10 +146,9 @@ def remove_from_cart():
     data = request.get_json()
     user = session.get('username')
     product_name = data.get('productName')
-    size = data.get('size')
     conn = sqlite3.connect('Database.db')
     cursor = conn.cursor()
-    cursor.execute('DELETE FROM carts WHERE user=? AND productName=? AND size=?', (user, product_name, size))
+    cursor.execute('DELETE FROM carts WHERE user=? AND productName=?', (user, product_name))
     conn.commit()
     conn.close()
     return jsonify({'message': 'Product removed'})
