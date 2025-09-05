@@ -167,9 +167,15 @@ def create_order():
     conn = sqlite3.connect('Database.db')
     cursor = conn.cursor()
     # שליפת סכום כולל מהסל
-    cursor.execute('SELECT SUM(price * quantity) FROM carts WHERE user=?', (user,))
-    total = cursor.fetchone()[0]
-    if not total:
+    cursor.execute('SELECT price, quantity FROM carts WHERE user=?', (user,))
+    rows = cursor.fetchall()
+    total = 0
+    for price, quantity in rows:
+        try:
+            total += float(price) * int(quantity)
+        except Exception:
+            continue
+    if total == 0:
         conn.close()
         return jsonify({'message': 'Cart is empty'}), 400
 
@@ -182,7 +188,7 @@ def create_order():
     cursor.execute('''
         INSERT INTO orders (orderID, orderDateTime, customerName, totalOrder)
         VALUES (?, ?, ?, ?)
-    ''', (order_id, order_datetime, customer_name, total))
+    ''', (order_id, order_datetime, customer_name, int(total)))
 
     # ריקון הסל של המשתמש
     cursor.execute('DELETE FROM carts WHERE user=?', (user,))
