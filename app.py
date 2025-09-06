@@ -38,7 +38,12 @@ def login():
         session['role'] = user['role']
 
         if user['role'] == 'admin':
-            return render_template('Manager/dashboard.html', username=user['username'])
+            conn = get_db_connection()
+            cursor = conn.cursor()
+            cursor.execute('SELECT COUNT(*) FROM orders')
+            total_orders = cursor.fetchone()[0]
+            conn.close()
+            return render_template('Manager/dashboard.html', username=user['username'], total_orders=total_orders)
         elif user['role'] == 'customer':
             return render_template('customer/customerHomePage.html', username=user['username'])
         else:
@@ -155,46 +160,68 @@ def remove_from_cart():
     conn.close()
     return jsonify({'message': 'Product removed'})
 
-import uuid
-import time
-
 @app.route('/create_order', methods=['POST'])
 def create_order():
     user = session.get('username')
     if not user:
         return jsonify({'message': 'User not logged in'}), 401
 
+    try:
+        conn = sqlite3.connect('Database.db')
+        cursor = conn.cursor()
+
+        # שליפת כל המוצרים בסל של המשתמש
+        cursor.execute('SELECT productName, quantity, price FROM carts WHERE user=?', (user,))
+        cart_items = cursor.fetchall()
+
+        if not cart_items:
+            conn.close()
+            return jsonify({'message': 'Cart is empty'}), 400
+
+        # חישוב סכום כולל
+        total = 0
+        for productName, quantity, price in cart_items:
+            try:
+                # הסר סימן דולר אם קיים והמר למספר
+                price_num = float(str(price).replace('$', '').strip())
+                total += price_num * int(quantity)
+            except Exception as e:
+                print(f"Error parsing price for {productName}: {e}")
+
+        # יצירת מזהה הזמנה וזמן
+        order_id = str(uuid.uuid4())
+        order_datetime = int(time.time())
+        customer_name = user
+
+        # הכנסת ההזמנה לטבלת orders
+        cursor.execute('''
+            INSERT INTO orders (orderID, orderDateTime, customerName, totalOrder)
+            VALUES (?, ?, ?, ?)
+        ''', (order_id, order_datetime, customer_name, int(total)))
+
+        # ניקוי הסל של המשתמש
+        cursor.execute('DELETE FROM carts WHERE user=?', (user,))
+        conn.commit()
+        conn.close()
+
+        return jsonify({'message': 'Order created successfully!', 'orderID': order_id})
+
+    except Exception as e:
+        print("Error creating order:", e)
+        return jsonify({'message': 'Error creating order'}), 500
+    
+
+# ניהול
+@app.route('/manager/dashboard')
+def manager_dashboard():
+    import sqlite3
     conn = sqlite3.connect('Database.db')
     cursor = conn.cursor()
-    # שליפת סכום כולל מהסל
-    cursor.execute('SELECT price, quantity FROM carts WHERE user=?', (user,))
-    rows = cursor.fetchall()
-    total = 0
-    for price, quantity in rows:
-        try:
-            total += float(price) * int(quantity)
-        except Exception:
-            continue
-    if total == 0:
-        conn.close()
-        return jsonify({'message': 'Cart is empty'}), 400
-
-    # יצירת מספר הזמנה ייחודי
-    order_id = str(uuid.uuid4())
-    order_datetime = int(time.time())
-    customer_name = user
-
-    # הכנסת ההזמנה לטבלה orders
-    cursor.execute('''
-        INSERT INTO orders (orderID, orderDateTime, customerName, totalOrder)
-        VALUES (?, ?, ?, ?)
-    ''', (order_id, order_datetime, customer_name, int(total)))
-
-    # ריקון הסל של המשתמש
-    cursor.execute('DELETE FROM carts WHERE user=?', (user,))
-    conn.commit()
+    cursor.execute('SELECT COUNT(*) FROM orders')
+    total_orders = cursor.fetchone()[0]
     conn.close()
-    return jsonify({'message': 'Order created successfully!', 'orderID': order_id})
+    return render_template('Manager/dashboard.html', total_orders=total_orders, username=session.get('username'))
+
 
 # הרצה
 if __name__ == '__main__':
