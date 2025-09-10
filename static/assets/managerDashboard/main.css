@@ -244,6 +244,12 @@ button.bg-secondary:focus {
     background-color: #3ac47d !important
 }
 
+
+
+.bg-success-Target {
+    background-color: #9a7752 !important
+}
+
 a.bg-success:hover,
 a.bg-success:focus,
 button.bg-success:hover,
@@ -253,6 +259,10 @@ button.bg-success:focus {
 
 .bg-info {
     background-color: #16aaff !important
+}
+
+.bg-blue {
+    background-color: #265e7f !important
 }
 
 a.bg-info:hover,
@@ -266,6 +276,13 @@ button.bg-info:focus {
     background-color: #f7b924 !important
 }
 
+
+
+.bg-warning-yellow {
+    background-color: #b47c27 !important
+}
+
+
 a.bg-warning:hover,
 a.bg-warning:focus,
 button.bg-warning:hover,
@@ -275,6 +292,9 @@ button.bg-warning:focus {
 
 .bg-danger {
     background-color: #d92550 !important
+}
+.bg-danger-Income {
+    background-color: #14582a !important
 }
 
 a.bg-danger:hover,
@@ -10870,12 +10890,12 @@ a.text-secondary:focus {
 }
 
 .text-success {
-    color: #3ac47d !important
+    color: #7D8758 !important
 }
 
 a.text-success:hover,
 a.text-success:focus {
-    color: #298957 !important
+    color: #7D8758 !important
 }
 
 .text-info {
@@ -10888,21 +10908,21 @@ a.text-info:focus {
 }
 
 .text-warning {
-    color: #f7b924 !important
+    color: #C5B67B !important
 }
 
 a.text-warning:hover,
 a.text-warning:focus {
-    color: #c78f07 !important
+    color: #C5B67B !important
 }
 
 .text-danger {
-    color: #d92550 !important
+    color: #390D02 !important
 }
 
 a.text-danger:hover,
 a.text-danger:focus {
-    color: #981a38 !important
+    color: #390D02 !important
 }
 
 .text-light {
@@ -11343,7 +11363,7 @@ button,
     font-size: .8rem;
     margin: .75rem 0;
     font-weight: bold;
-    color: #3f6ad8;
+    color: #2f3e46;
     white-space: nowrap;
     position: relative
 }
@@ -12568,8 +12588,25 @@ button,
     background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%) !important
 }
 
+
+.bg-midnight-bloom {
+    background-image: radial-gradient(circle 248px at Left, #333d29 0%, #414833 47%, #656d4a 100%) !important
+}
 .bg-arielle-smile {
-    background-image: radial-gradient(circle 248px at center, #16d9e3 0%, #30c7ec 47%, #46aef7 100%) !important
+    background-image: radial-gradient(circle 248px at Left, #656d4a 0%, #a4ac86 47%, #b6ad90 100%) !important
+}
+
+.bg-arielle-smile-chat {
+    background-image: radial-gradient(circle 248px at top, #656d4a 0%, #b6ad90 100%) !important
+}
+
+.bg-grow-early {
+    background-image: radial-gradient(circle 248px at Left, #b6ad90 0%, #936639 47%, #582f0e 100%) !important
+}
+
+
+.bg-premium-dark {
+    background-image: radial-gradient(circle 248px at Right, #a68a64 0%, #7f4f24 47%, #582f0e 100%) !important
 }
 
 .bg-plum-plate {
@@ -12592,17 +12629,11 @@ button,
     background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%) !important
 }
 
-.bg-grow-early {
-    background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%) !important
-}
-
 .bg-love-kiss {
     background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%) !important
 }
 
-.bg-premium-dark {
-    background-image: linear-gradient(to right, #434343 0%, black 100%) !important
-}
+
 
 .bg-happy-green {
     background-image: linear-gradient(to bottom, #00b09b, #96c93d) !important
@@ -12612,9 +12643,6 @@ button,
     background-image: linear-gradient(60deg, #29323c 0%, #485563 100%) !important
 }
 
-.bg-midnight-bloom {
-    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%) !important
-}
 
 .bg-night-sky {
     background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%) !important
